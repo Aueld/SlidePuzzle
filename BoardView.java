@@ -128,6 +128,8 @@ public class BoardView extends View {
 
 						if(!endGame)
 							canvas.drawText(number + "", dst[i][j].left, dst[i][j].bottom, foreground);
+						else if(endGame)
+							canvas.drawBitmap(bitmapCut[15], null, dst[3][3], foreground);
 					}
 				}
 			}
