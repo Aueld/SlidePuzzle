@@ -1,4 +1,4 @@
-package com.example.slidepuzzle;
+package com.customslidepuzzle;
 
 import android.content.Context;
 import android.graphics.Color;

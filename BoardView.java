@@ -1,4 +1,4 @@
-package com.example.slidepuzzle;
+package com.customslidepuzzle;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -75,7 +75,7 @@ public class BoardView extends View {
 		// 기본 이미지 설정
 		if(oldBitmap == null) {
 			Resources res = getResources();
-			BitmapDrawable drawable = (BitmapDrawable) ResourcesCompat.getDrawable(res, R.drawable.android, null);
+			BitmapDrawable drawable = (BitmapDrawable) ResourcesCompat.getDrawable(res, R.drawable.temp, null);
 
 			SetImage(drawable.getBitmap());
 		}
@@ -90,7 +90,7 @@ public class BoardView extends View {
 
 		Paint foreground = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-		foreground.setColor(Color.CYAN);
+		foreground.setColor(Color.GRAY);
 		foreground.setStyle(Paint.Style.FILL);
 		foreground.setTextSize(80f);
 
@@ -112,7 +112,6 @@ public class BoardView extends View {
 
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4; j++){
-
 				dst[i][j] = new Rect(i * slide, j * slide, i * slide + slide, j * slide + slide);
 			}
 		}
@@ -123,14 +122,15 @@ public class BoardView extends View {
 				if (it.hasNext()) {
 					Place p = it.next();
 					if (p.hasTile()) {
-						int number = p.getTile().getNumber();
-						canvas.drawBitmap(bitmapCut[number], null, dst[i][j], foreground);
+                        int number = p.getTile().getNumber();
+                        canvas.drawBitmap(bitmapCut[number], null, dst[i][j], foreground);
 
-						if(!endGame)
-							canvas.drawText(number + "", dst[i][j].left, dst[i][j].bottom, foreground);
-						else if(endGame)
-							canvas.drawBitmap(bitmapCut[15], null, dst[3][3], foreground);
-					}
+                        if (!endGame)
+                            canvas.drawText(number + "", dst[i][j].left, dst[i][j].bottom, foreground);
+                        else if(endGame)
+                            canvas.drawBitmap(bitmapCut[16], null, dst[3][3], foreground);
+
+                    }
 				}
 			}
 		}

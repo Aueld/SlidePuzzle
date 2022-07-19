@@ -1,4 +1,4 @@
-package com.example.slidepuzzle;
+package com.customslidepuzzle;
 
 import java.util.*;
 

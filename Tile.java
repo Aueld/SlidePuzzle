@@ -1,4 +1,4 @@
-package com.example.slidepuzzle;
+package com.customslidepuzzle;
 
 public class Tile {
     private final int number;
